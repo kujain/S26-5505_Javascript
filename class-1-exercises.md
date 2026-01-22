@@ -1,13 +1,13 @@
 ## Exercise 1
 ### Hello World!
 ```
-console.log('Hello Fall 2025');
+console.log('Hello Spring 2026');
 ```
 ### Using vars with Hello World!
 ```
 let greeting_container;
 // assign greeting to variable
-greeting_container = 'Hello Fall 2025';
+greeting_container = 'Hello Spring 2026';
 console.log(greeting_container);
 ```
 
