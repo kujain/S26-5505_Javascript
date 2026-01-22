@@ -3,7 +3,7 @@
 # INTRODUCTION
 
 
-## 1 Why Learn Coding?
+## Why Learn Coding?
 **PROS**
 - Better understanding of what goes into creating computer web/applications.
 - Better understanding of limits of design ideas.
