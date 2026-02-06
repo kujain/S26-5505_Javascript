@@ -343,13 +343,73 @@ console.log(newmod()); //1776
 
 1. Write a function that calculates the average of a list of numbers. Use an array iterator if you can.
 ```
+function calc_avg ( arr ) {
+	let total = 0;
+
+	// using loops
+    for ( const val of arr ) {
+        total = total + val;
+    }
+
+	// using an array iterator
+    total = arr.reduce( ( prev, curr ) =>  prev + curr );
+
+    let avg = total / arr.length;
+    return  avg ;
+}
+
+let numbers = [1,2,3,4, 10];
+console.log( calc_avg( numbers ) );
+
+numbers = [1,2,3,4, 10, 12, 15];
+console.log( calc_avg( numbers ) );
 ```
 
 2. Find a pattern match in a string: create a function that searches a string and find if it contains a pattern eg. 'life' . Make sure its case insensitive
 const my_quote = "The Answer to the Great Question Of Life, the Universe and Everything is Forty-two";
 ```
+function findMatch( string, pattern ) {
+    //write your search code and return true or false
+    string = string.toLowerCase();
+    pattern = pattern.toLowerCase();
+    if ( string.indexOf( pattern ) !== -1 ) {
+        return pattern + " found";
+    } else {
+        return pattern + " not found";
+    }
+}
+
+console.log( findMatch( my_quote, 'life') );
 ```
 
 3. Start from 2 above but change it: when match found, provide a callback that changes that matched part of the string in some way eg. make it all uppercase or wraps it in quotes
 ```
+const my_quote1 = "The Answer to the great Question Of Life, the Universe and Everything is Forty-two";
+
+function changeMatch( string, pattern, callback ) {
+    	let loc = string.toLowerCase().indexOf(pattern.toLowerCase());
+
+        if (loc !== -1) { // pattern found
+            let new_pattern = callback( pattern );
+            
+            // replace the pattern with the new pattern - it needs to be case insensitive so string.replace will not work. We need to use indexOf to find the pattern and then replace the pattern with the new pattern.
+			// ie this will not work for case insensitive replacing: return string.replace(pattern, new_pattern);
+			string = string.substring(0, loc) + new_pattern + string.substring(loc + pattern.length);
+
+            return string;
+        } else { // pattern not found
+            return false;
+        }
+}
+
+function inverse( str ) {
+    	changed = 'DEATH';
+		return changed;
+}
+function decorate( str ) {
+		return '**' + str + '**';
+}
+
+console.log( changeMatch( my_quote1, 'life', inverse) );
+console.log( changeMatch( my_quote1, 'life', decorate) );
 ```
