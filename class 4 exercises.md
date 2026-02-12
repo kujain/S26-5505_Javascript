@@ -18,7 +18,7 @@
 4. Similarly create a method for perimeter calculation for the shape based on the number of sides provided
 
 
-## EXERCISE 2
+## EXERCISE 3
 
 ### The Movie Object
 1. Create a few Movie objects using a constructor.
