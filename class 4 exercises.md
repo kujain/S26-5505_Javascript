@@ -46,3 +46,6 @@ const movie3 = {
   genre: "Animation",
 };
 ```
+3. Access and modify individual movie information.
+4. Create a method that returns that movie's information in a formatted string. (e.g., "Title: The Shawshank Redemption, Year: 1994, Director: Frank Darabont, Genre: Drama").
+5. Use a loop to iterate through the movies array and print the formatted summary for each movie.
