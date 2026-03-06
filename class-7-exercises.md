@@ -20,9 +20,9 @@ function getUserData() {
 			return response.json();
 		})
 		.then(function(resp) {
-			document.getElementById("Output").innerHTML = JSON.stringify(resp.results[0]);
+			document.getElementById("Output").innerHTML = JSON.stringify(resp.data);
 
-      // add your code here to process the response and format and add to the DOM
+	      // add your code here to process the response and format and add to the DOM
 
     })
 		.catch(function(error) {
