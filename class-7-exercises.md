@@ -2,24 +2,34 @@
 
 ### Class exercise: use above to get data from reqres and then format in the DOM.
 ```
-let button = document.getElementById('GetUsers');
+const button = document.getElementById('GetUsers');
 button.addEventListener("click", getUserData);
 
 function getUserData() {
 
-	const ul = document.createElement('ul');
 	const url = 'https://reqres.in/api/users';
-	const xhr = new XMLHttpRequest();
-	xhr.onload = function() {
-		if (xhr.status === 200  || xhr.status === 201) {
+	fetch(
+    url,
+		{
+			method: 'GET',
+			headers: {
+        		'x-api-key': 'reqres_95b045da93704c77a365da5f0df9ef90'
+      		},
+		})
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(resp) {
+			document.getElementById("Output").innerHTML = JSON.stringify(resp.results[0]);
 
       // add your code here to process the response and format and add to the DOM
-      
-		}
-	}
-	xhr.open('GET', url, true);
-  xhr.setRequestHeader( 'x-api-key', 'reqres-free-v1');
-	xhr.send(null);
+
+    })
+		.catch(function(error) {
+			document.getElementById("Output").innerHTML = "There was an error "+error;
+		});
+
 }
+
 ```
 
