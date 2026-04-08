@@ -1,0 +1,317 @@
+**For steps 1 - 8 start from this starting boilerplate: [empty boilerplate](https://github.com/kujain/F25-5505_Javascript/blob/main/class-11_boilerplate_starter.zip)**
+
+**For step 9, use this boilerplate: [es6 modules boilerplate](https://github.com/kujain/F25-5505_Javascript/blob/main/class-11_boilerplate_es6_starter.zip)**
+
+**For the vite example, use this boilerplate: [Vite boilerplate](https://github.com/kujain/F25-5505_Javascript/blob/main/final_vite_boilerplate_template.zip)**
+
+# 0. SETUP
+
+## XCODE (for OSX):
+https://developer.apple.com/download
+```
+gcc -v
+xcode-select --install
+```
+
+## Homebrew: package manager for OSX
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew update
+
+brew doctor
+```
+Add the brew location in the profile file: 
+```
+export PATH="/opt/homebrew/bin:$PATH"
+echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.bash_profile
+```
+## Install latest LTS Nodejs (24) (also installs NPM version 11): 
+```
+brew install node@24
+```
+to upgrade: `brew upgrade node`
+
+## For Windows or otherwise: download install from nodejs.org - LTS 24.x)
+
+## Git install:
+```
+brew install git
+```
+
+# 1. Start:
+
+**Note:** if your node version is v25 or later (current is v24) (check by typing `node -v` and see the resulting version), please downgrade to 24 LTS. V26 is available but it's safest to work with the latest LTS version most of the time. 
+```
+node -v
+```
+
+Install gulp globally:
+```
+npm install gulp gulp-cli -g
+```
+
+In case of permissions error
+```
+sudo npm install gulp gulp-cli -g
+```
+
+Then restart terminal.
+
+**This completes all the global installation process. The next steps are at the project level. So navigate to your project folder (use the boiletplate folder above for the purpose of this exercise). Then go through the following steps:
+**
+
+Get the boilerplate and expand into a folder. cd into that folder. This skeleton will be the starting base for this project. It contains an index.html and basic sass and js files inside the src folder. The subsequent steps will create the gulp tasks needed to generate the actual production ready js and css files in a new dist folder.
+Run:
+```
+npm init
+```
+
+Use defaults for most. This will create a package.json file and prepare for the subsequent node packages. If gulp is not installed globally, edit package.json and add this to scripts inside package.json file:
+```
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "gulp"
+},
+```
+
+# 2. Install local gulp and other packages
+
+Install current version of gulp locally:
+
+```
+npm install --save-dev gulp
+```
+
+Now install the starting packages:
+
+```
+npm install --save-dev sass gulp-sass gulp-cssnano gulp-sourcemaps gulp-autoprefixer@8
+```
+
+This will install the above 4 packages and add it to package.json file.
+
+
+# 3. Update the empty gulpfile.js
+
+Copy the code from the below file and add into the empty gulpfile.js: 
+https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-1_gulpfile.js
+
+This sets up the first task: to take all the SCSS files and compile into a single style.css file. Type:
+```
+npm start
+```
+
+Gulp will run and a  new *dist* folder is created with the generated css file in there. The css file will also be minified through the use of cssnano() gulp package.
+Open the index.html file in a browser and it should render using the css file from the dist folder.
+Make changes to the scss files in src folder and rerun gulp. gulp will detect them automatically and update the generated css file. Reload the index.html file to see the changes.
+
+
+# 4. Setup browser sync and watch to run the project from a local web server.
+
+Run:
+```
+npm install --save-dev browser-sync
+```
+
+Update the gulpfile.js with the code from
+https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-2_gulpfile.js
+
+Then run:
+```
+npm start
+```
+
+Gulp will run and start in the background and a new browser window will start on  the url http://localhost:3000/. This is the root of the server that will host the index.html file.
+Change something in the sass files and that update will automatically be detected and rendered in the browser without you having to reload manually!
+
+Having a local server  handling your files has many advantages:
+- simulates a proper web serving environment
+- can get around many CORS issues that hassle  API access from javascript
+- gets around file path issues
+
+
+# 5. Include js in the task runner.
+```
+npm install --save-dev jshint gulp-rename gulp-concat gulp-jshint
+```
+
+Update the gulpfile.js with the code from:
+https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-3_gulpfile.js
+
+Then run:
+```
+npm start
+```
+
+Now all js files in the src folder will get joined into one scripts.js file in the dist folder. Browsersync will refresh everything a change is made in the js files (and scss files).
+
+Also, you will see some additional lines in the terminal related to js errors and compatibility warnings - these are generated by the linting package. By default linting will include es6 related warnings. To remove them, add a new file called .jshintrc with one json code block:
+```
+{
+   "esversion": 6
+}
+```
+
+Now es6 warnings will be removed from linting.
+
+
+# 6. Include jquery within the task runner.
+```
+npm install --save jquery
+```
+
+Update the gulpfile.js with the code from
+https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-4_gulpfile.js
+
+Then run:
+```
+npm start
+```
+
+Now the generated scripts.js will include jquery in its entirety and you wont need to add it to index.html as a separate script block.
+
+
+# 7. Minify the generated js
+
+Due to the inclusion of plugins, the js file has  become rather large. Minifying the js file would help is compacting the file.
+```
+npm install --save-dev gulp-terser
+```
+
+Update the gulpfile.js with the code from
+https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-5_gulpfile.js
+
+Then run:
+```
+npm start
+```
+Now, the same js file from previous step will be compressed and minified into a file about a quarter of the original size!
+
+
+# 8. Add transpiling to auto-convert all es6 and newer code into older format for browser compatibility
+```
+npm install --save-dev gulp-babel @babel/core @babel/preset-env
+```
+
+Update the gulpfile.js with the code from
+https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-6_gulpfile.js
+
+Then run:
+```
+npm start
+```
+
+Now, all es6 code format will auto-convert into es5 syntax. This gives you so much flexibility in your coding style that its pretty much the best reason for using a task runner!
+
+
+
+# 9. Working with ES6 modules
+
+ES6 module structure is not compatible with many current and most older browsers. To make them usable across all browsers including older ones, they need to be converted into vanilla js. Using the webpack bundler, you can continue to develop using ES6 modules and then compile them into a fixed format for production use.
+
+For this task, use [boilerplate_e6.zip](https://github.com/kujain/F25-5505_Javascript/blob/main/class-11_boilerplate_es6_starter.zip) file and start from there. The above steps have already been integrated into the gulpfile and package.json so you can simply run npm install to install ALL the packages indexed in that fileL
+```
+npm install
+```
+
+Update the gulpfile.js with the code from
+https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-7_gulpfile.js
+
+Since this requires webpack, an additional webpack config file is required for it to handle the  bundling process. Create a  webpack.config.js file and update its content from:
+https://github.com/kujain/F25-5505_Javascript/blob/main/webpack.config.js
+
+You also need a `.babelrc` file in the folder, but that's already been provided in this boilerplate for you.
+
+Then run:
+```
+npm start
+```
+
+The generated js converts all the ES6 modules into a flat js file ready for any browser version. It's also minified and optimized.
+
+**NOTE:** The above also includes jQuery framework to serve as an example of importing an external library into your project. You can simply remove it from gulpfile.js if its not required for your project, or use any other library instead.
+
+# 10. Using a modern and efficient taskrunner: Vite
+
+Vite is a more modern and very fast dev environment that automates most of the automation scripts presented earlier.
+- SCSS compiling and minification. 
+- JS transpiling (minimum ES6) and minification.
+- Built-in dev server
+- Linting and testing
+- Assets handling
+- and more.
+- https://vite.dev/
+  
+Download the initialization folder: https://github.com/kujain/F25-5505_Javascript/blob/main/final_vite_boilerplate_template.zip
+
+To install and run:
+```
+$ npm install
+```
+```
+// to run the dev server on port 3000
+$ npm run dev
+```
+```
+// to compile all assets for distribution
+$ npm run build
+```
+
+----
+# GOING FORWARD:
+
+### Please use the either of the 3 workflows presented above and adapt for your upcoming final project as needed. Test the steps and make sure that the final files being generated in the dist folder are correct and working.
+
+The following zip files contain the complete folder structure and configuration files for gulp, webpack, vite etc. SImply extract, update the html, js, (s)css files and run the automation to compile:
+
+## OPTION 1: COMPLETE GULP TASKS (non-ES6):
+Download: https://github.com/kujain/F25-5505_Javascript/blob/main/final_boilerplate_template.zip
+```
+$ npm install
+// to run compile and start the dev server
+$ npm start
+```
+
+## OPTION 2: COMPLETE GULP TASKS (ES6):
+Download: https://github.com/kujain/F25-5505_Javascript/blob/main/final_es6_boilerplate_template.zip
+```
+$ npm install
+// to run compile and start the dev server
+$ npm start
+```
+
+## OPTION 3: COMPLETE VITE TASKS (ES6):
+Download: https://github.com/kujain/F25-5505_Javascript/blob/main/final_vite_boilerplate_template.zip
+
+```
+$ npm install
+// to start the dev server
+$ npm run dev
+// to compile final distribution assets
+$ npm run build
+```
+
+# SHARING CODE WITH TEAM
+
+Share ONLY these files :
+- src/
+- index.html
+- gulpfile.js
+- package.json
+- package-lock.json
+- (any other config files)
+- **DO NOT INCLUDE** node_modules/ or dist/!
+
+Zip the files and send to team member (or instructor) or upload to github/canvas.
+
+At the instructor/team member end: copy to a new location (or clone if using git/github) and cd into it eg.:
+```
+$ cd ../CLEANFOLDER
+```
+run:    `$ npm install`
+
+This will clone the installed packages in this new folder and make them available for use. As long as they have node installed, the below will generate all the dist files etc.
+
+Run   `$ npm start (or npm run dev if using vite)`
+
