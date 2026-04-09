@@ -1,8 +1,8 @@
-**For steps 1 - 8 start from this starting boilerplate: [empty boilerplate](https://github.com/kujain/F25-5505_Javascript/blob/main/class-11_boilerplate_starter.zip)**
+**For steps 1 - 8 start from this starting boilerplate: [empty boilerplate](https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11_boilerplate_starter.zip)**
 
-**For step 9, use this boilerplate: [es6 modules boilerplate](https://github.com/kujain/F25-5505_Javascript/blob/main/class-11_boilerplate_es6_starter.zip)**
+**For step 9, use this boilerplate: [es6 modules boilerplate](https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11_boilerplate_es6_starter.zip)**
 
-**For the vite example, use this boilerplate: [Vite boilerplate](https://github.com/kujain/F25-5505_Javascript/blob/main/final_vite_boilerplate_template.zip)**
+**For the vite example, use this boilerplate: [Vite boilerplate](https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/final_vite_boilerplate_template.zip)**
 
 # 0. SETUP
 
@@ -95,7 +95,7 @@ This will install the above 4 packages and add it to package.json file.
 # 3. Update the empty gulpfile.js
 
 Copy the code from the below file and add into the empty gulpfile.js: 
-https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-1_gulpfile.js
+https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11-1_gulpfile.js
 
 This sets up the first task: to take all the SCSS files and compile into a single style.css file. Type:
 ```
@@ -115,7 +115,7 @@ npm install --save-dev browser-sync
 ```
 
 Update the gulpfile.js with the code from
-https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-2_gulpfile.js
+https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11-2_gulpfile.js
 
 Then run:
 ```
@@ -137,7 +137,7 @@ npm install --save-dev jshint gulp-rename gulp-concat gulp-jshint
 ```
 
 Update the gulpfile.js with the code from:
-https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-3_gulpfile.js
+https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11-3_gulpfile.js
 
 Then run:
 ```
@@ -162,7 +162,7 @@ npm install --save jquery
 ```
 
 Update the gulpfile.js with the code from
-https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-4_gulpfile.js
+https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11-4_gulpfile.js
 
 Then run:
 ```
@@ -180,7 +180,7 @@ npm install --save-dev gulp-terser
 ```
 
 Update the gulpfile.js with the code from
-https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-5_gulpfile.js
+https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11-5_gulpfile.js
 
 Then run:
 ```
@@ -195,7 +195,7 @@ npm install --save-dev gulp-babel @babel/core @babel/preset-env
 ```
 
 Update the gulpfile.js with the code from
-https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-6_gulpfile.js
+https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11-6_gulpfile.js
 
 Then run:
 ```
@@ -216,7 +216,7 @@ npm install
 ```
 
 Update the gulpfile.js with the code from
-https://github.com/kujain/F25-5505_Javascript/blob/main/class-11-7_gulpfile.js
+https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11-7_gulpfile.js
 
 Since this requires webpack, an additional webpack config file is required for it to handle the  bundling process. Create a  webpack.config.js file and update its content from:
 https://github.com/kujain/F25-5505_Javascript/blob/main/webpack.config.js
@@ -243,7 +243,7 @@ Vite is a more modern and very fast dev environment that automates most of the a
 - and more.
 - https://vite.dev/
   
-Download the initialization folder: https://github.com/kujain/F25-5505_Javascript/blob/main/final_vite_boilerplate_template.zip
+Download the initialization folder: https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/final_vite_boilerplate_template.zip
 
 To install and run:
 ```
@@ -266,7 +266,7 @@ $ npm run build
 The following zip files contain the complete folder structure and configuration files for gulp, webpack, vite etc. SImply extract, update the html, js, (s)css files and run the automation to compile:
 
 ## OPTION 1: COMPLETE GULP TASKS (non-ES6):
-Download: https://github.com/kujain/F25-5505_Javascript/blob/main/final_boilerplate_template.zip
+Download: https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/final_boilerplate_template.zip
 ```
 $ npm install
 // to run compile and start the dev server
@@ -274,7 +274,7 @@ $ npm start
 ```
 
 ## OPTION 2: COMPLETE GULP TASKS (ES6):
-Download: https://github.com/kujain/F25-5505_Javascript/blob/main/final_es6_boilerplate_template.zip
+Download: https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/final_es6_boilerplate_template.zip
 ```
 $ npm install
 // to run compile and start the dev server
@@ -282,7 +282,7 @@ $ npm start
 ```
 
 ## OPTION 3: COMPLETE VITE TASKS (ES6):
-Download: https://github.com/kujain/F25-5505_Javascript/blob/main/final_vite_boilerplate_template.zip
+Download: https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/final_vite_boilerplate_template.zip
 
 ```
 $ npm install
