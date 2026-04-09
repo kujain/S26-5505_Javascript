@@ -1,3 +1,10 @@
+#### SESSION #11
+
+# MODERN WORKFLOWS/DEVOPS
+
+
+
+
 **For steps 1 - 8 start from this starting boilerplate: [empty boilerplate](https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11_boilerplate_starter.zip)**
 
 **For step 9, use this boilerplate: [es6 modules boilerplate](https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11_boilerplate_es6_starter.zip)**
