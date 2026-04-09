@@ -58,7 +58,8 @@ sudo npm install gulp gulp-cli -g
 
 Then restart terminal.
 
-**This completes all the global installation process. The next steps are at the project level. So navigate to your project folder (use the boiletplate folder above for the purpose of this exercise). Then go through the following steps:
+**This completes all the global installation process. The next steps are at the project level. So navigate to your project folder (use the [boiletplate folder above](https://github.com/kujain/S26-5505_Javascript/blob/main/class_11_sciripts/class-11_boilerplate_starter.zip
+) for the purpose of this exercise). Then go through the following steps:
 **
 
 Get the boilerplate and expand into a folder. cd into that folder. This skeleton will be the starting base for this project. It contains an index.html and basic sass and js files inside the src folder. The subsequent steps will create the gulp tasks needed to generate the actual production ready js and css files in a new dist folder.
